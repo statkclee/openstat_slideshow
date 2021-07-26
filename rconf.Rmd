@@ -1,0 +1,147 @@
+---
+title: "R in Sports"
+subtitle: "올림픽 우승팀 예측"
+author: "저자: 알사랑"
+institute: "R 사용자회"
+date: "2021-11-19"
+output:
+  xaringan::moon_reader:
+    css: 
+      - [default]
+      - css/rconf.css
+      - css/rconf-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+      beforeInit: "macros.js"
+    includes:
+      after_body: [css/rconf-logo.html]
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+options(
+  htmltools.dir.version = FALSE, 
+  htmltools.preserve.raw = FALSE,
+  tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**디지털 불평등(Digital Divide)**]과 .red[**디지털 경제전환(Digital Transformation)**]의 가속화가 코로나19로 보다 명확해진 시대다. 이러한 변화의 중심에 빅데이터, 기계학습, 인공지능 등 데이터 기반 기술이 자리 잡고 있으며 또 집중 관심을 받고 있다. 데이터 시대를 맞아 **R**은 통계에 기반한 프로그래밍 언어임에도 불구하고 다른 범용 프로그래밍 언어와 같은 큰 인기를 얻고 있다.
+
+금번 .green[**‘한국 R 컨퍼런스 2021’**] 은 기존 통계학 관련 학계, 산업계, 정부 뿐 아니라 데이터 과학계까지 망라해 데이터를 통해 문제를 해결하고 가치를 창출하고자 하는 모든 분이 모여 경험과 지식을 공유하고 네트워킹을 할 수 있는 자리로 기획하였다. 데이터 활용의 폭과 깊이를 더한 이 자리에서 데이터를 통해 새로운 세상을 열어가고 함께 하실 수 있는 많은 분을 만나는 소중한 시간이 되었으면 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. **[.black[디지털 불평등]](#digital-inequality)**
+
+2\. **[.red[디지털 경제전환]](#digital-inequality)**
+
+3\. **[.green[한국 R 컨퍼런스 2021]](#digital-inequality)**
+
+4\. [마무리](#digital-goodbye)
+
+]
+] <!--end of right-column-->
+
+
+<!--------------------------  디지털 경제 전환 ----------------------------------------->
+
+---
+name: ml-bigdata-ml
+# 빅데이터와 기계학습
+
+.center[
+  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
+]
+
+
+.footnote[
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
+]
+
+
+---
+name: ml-bigdata-ml
+# 소프트웨어 1.0과 2.0
+
+- 소프트웨어 1.0: 사람이 직접 규칙(Rule)을 작성하여 똑똑한 시스템 개발
+- 소프트웨어 2.0: 데이터에서 딥러닝 알고리즘을 활용 기계가 알고리즘(Algorithm) 제작 
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="77%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+name: rconf-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 <br>감사합니다.**
+<br/>
+## R 사용자회
+
+]
+
+.pull-right[
+.right[
+
+<img style="border-radius: 100%;" src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/koRea_vertical_logo.png" width="300px"/>
+
+]
+]

@@ -17,3 +17,13 @@
 # 참고문헌
 
 - [Starter Kit for Tampa R Users Group Speakers](https://github.com/gadenbuie/extra-awesome-xaringan/blob/master/tampa-users-instructions.md)
+
+# 글꼴
+
+
+- `css/rconf-fonts.css`: `xaringan` 발표슬라이드 글꼴 정의
+  - 나눔 고딕(Nanum Gothic): https://fonts.google.com/specimen/Nanum+Gothic?subset=korean
+  - 나눔 명조(Nanum Myeongjo): https://fonts.google.com/specimen/Nanum+Myeongjo?subset=korean
+  - 나눔 고딕 코딩(Nanum Gothic Coding): https://fonts.google.com/specimen/Nanum+Gothic+Coding?subset=korean
+
+

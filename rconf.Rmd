@@ -1,7 +1,7 @@
 ---
-title: "R in Sports"
-subtitle: "올림픽 우승팀 예측"
-author: "저자: 알사랑"
+title: "오픈 통계 패키지"
+subtitle: "Shiny, UI/UX, 데이터 패키지, 모듈, 클라우드"
+author: "윤화영 外"
 institute: "R 사용자회"
 date: "2021-11-19"
 output:
@@ -76,71 +76,35 @@ name: data-science-case
 .pull-right[   
 .left[
 
-1\. **[.black[디지털 불평등]](#digital-inequality)**
+1\. **[.black[한국 통계 패키지]](#digital-inequality)**
 
-2\. **[.red[디지털 경제전환]](#digital-inequality)**
+2\. **[.red[오픈업 컨트리뷰션]](#digital-inequality)**
 
-3\. **[.green[한국 R 컨퍼런스 2021]](#digital-inequality)**
+3\. **[.red[On-Boarding 프로그램]](#digital-inequality)**
 
-4\. [마무리](#digital-goodbye)
+4\. **[.red[데이터 패키지]](#digital-inequality)**
+
+5\. **[.green[오픈 통계 패키지]](#digital-inequality)**
+
+6\. [마무리](#digital-goodbye)
 
 ]
 ] <!--end of right-column-->
 
-
-<!--------------------------  디지털 경제 전환 ----------------------------------------->
-
 ---
-name: ml-bigdata-ml
-# 빅데이터와 기계학습
+<!--------------------------  한국 통계 패키지 ----------------------------------------->
 
-.center[
-  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
-]
+<!--------------------------  오픈업 컨트리뷰션 ----------------------------------------->
 
 
-.footnote[
-- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
-    - [직사각형 데이터](https://statkclee.github.io/data-science/)
-    - [텍스트 데이터](https://statkclee.github.io/text/)
-    - [네트워크 데이터](https://statkclee.github.io/network/)
-    - [지리정보 데이터](https://statkclee.github.io/spatial/)
-    - [이미지 데이터](https://statkclee.github.io/trilobite/)
-    - 오디오/소리 데이터
-    - ...
-]
+<!--------------------------  On-Boarding 프로그램 ----------------------------------------->
 
+```{r child='onboarding.Rmd'} 
+```
 
----
-name: ml-bigdata-ml
-# 소프트웨어 1.0과 2.0
+<!--------------------------  데이터 패키지 ----------------------------------------->
 
-- 소프트웨어 1.0: 사람이 직접 규칙(Rule)을 작성하여 똑똑한 시스템 개발
-- 소프트웨어 2.0: 데이터에서 딥러닝 알고리즘을 활용 기계가 알고리즘(Algorithm) 제작 
+<!--------------------------  마무리 ----------------------------------------->
 
-.center[
-  <img src="fig/programming_machine_learning_comparison.png" width="77%">
-]
-
-.footnote[
-   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
-]
-
----
-name: rconf-goodbye
-class: middle, inverse
-
-.pull-left[
-# **경청해 주셔서 <br>감사합니다.**
-<br/>
-## R 사용자회
-
-]
-
-.pull-right[
-.right[
-
-<img style="border-radius: 100%;" src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/koRea_vertical_logo.png" width="300px"/>
-
-]
-]
+```{r child='goodbye.Rmd'} 
+```

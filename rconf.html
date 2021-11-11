@@ -36,37 +36,33 @@ name: data-science-case
 
 .pull-left[
 
-.black[**디지털 불평등(Digital Divide)**]과 .red[**디지털 경제전환(Digital Transformation)**]의 가속화가 코로나19로 보다 명확해진 시대다. 이러한 변화의 중심에 빅데이터, 기계학습, 인공지능 등 데이터 기반 기술이 자리 잡고 있으며 또 집중 관심을 받고 있다. 데이터 시대를 맞아 **R**은 통계에 기반한 프로그래밍 언어임에도 불구하고 다른 범용 프로그래밍 언어와 같은 큰 인기를 얻고 있다.
-
-금번 .green[**‘한국 R 컨퍼런스 2021’**] 은 기존 통계학 관련 학계, 산업계, 정부 뿐 아니라 데이터 과학계까지 망라해 데이터를 통해 문제를 해결하고 가치를 창출하고자 하는 모든 분이 모여 경험과 지식을 공유하고 네트워킹을 할 수 있는 자리로 기획하였다. 데이터 활용의 폭과 깊이를 더한 이 자리에서 데이터를 통해 새로운 세상을 열어가고 함께 하실 수 있는 많은 분을 만나는 소중한 시간이 되었으면 합니다.
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
 
 ]
  
 .pull-right[   
 .left[
 
-1\. **[.black[들어가며]](#digital-inequality)**
+1\. [들어가며](#openstat-intro)
 
-2\. **[.red[오픈업 컨트리뷰션]](#digital-inequality)**
+2\. **[오픈업 컨트리뷰션](#openstat-openup)**
 
-3\. **[.red[On-Boarding 프로그램]](#digital-inequality)**
+3\. **[.green[On-Boarding 프로그램]](#openstat-onboarding)**
 
-4\. **[.red[데이터 패키지]](#digital-inequality)**
-
-5\. **[.green[오픈 통계 패키지]](#digital-inequality)**
-
-6\. [마무리](#digital-goodbye)
+4\. **[.warmyellow[오픈 통계 패키지]](#openstat-openstat)**
+ 
+5\. [마무리](#openstat-goodbye)
 
 ]
 ] &lt;!--end of right-column--&gt;
 
----
+
 &lt;!--------------------------  들어가며 -----------------------------------------&gt;
 
 
 
 ---
-name: rconf-onboarding-digital-divide
+name: openstat-intro
 # 디지털 불평등
 
 .center[
@@ -113,12 +109,12 @@ name: rconf-onboarding-stat
 # 통계/수학 SW 현황 (R사용자회, 2021)
 
 
-<div id="alpmcyezor" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ablhzjfnrx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#alpmcyezor .gt_table {
+#ablhzjfnrx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -143,7 +139,7 @@ name: rconf-onboarding-stat
   border-left-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_heading {
+#ablhzjfnrx .gt_heading {
   background-color: #756BB1;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -155,7 +151,7 @@ name: rconf-onboarding-stat
   border-right-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_title {
+#ablhzjfnrx .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -165,7 +161,7 @@ name: rconf-onboarding-stat
   border-bottom-width: 0;
 }
 
-#alpmcyezor .gt_subtitle {
+#ablhzjfnrx .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -175,13 +171,13 @@ name: rconf-onboarding-stat
   border-top-width: 0;
 }
 
-#alpmcyezor .gt_bottom_border {
+#ablhzjfnrx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_col_headings {
+#ablhzjfnrx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -196,7 +192,7 @@ name: rconf-onboarding-stat
   border-right-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_col_heading {
+#ablhzjfnrx .gt_col_heading {
   color: #333333;
   background-color: #BCBDDC;
   font-size: 100%;
@@ -216,7 +212,7 @@ name: rconf-onboarding-stat
   overflow-x: hidden;
 }
 
-#alpmcyezor .gt_column_spanner_outer {
+#ablhzjfnrx .gt_column_spanner_outer {
   color: #333333;
   background-color: #BCBDDC;
   font-size: 100%;
@@ -228,15 +224,15 @@ name: rconf-onboarding-stat
   padding-right: 4px;
 }
 
-#alpmcyezor .gt_column_spanner_outer:first-child {
+#ablhzjfnrx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#alpmcyezor .gt_column_spanner_outer:last-child {
+#ablhzjfnrx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#alpmcyezor .gt_column_spanner {
+#ablhzjfnrx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -248,7 +244,7 @@ name: rconf-onboarding-stat
   width: 100%;
 }
 
-#alpmcyezor .gt_group_heading {
+#ablhzjfnrx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -270,7 +266,7 @@ name: rconf-onboarding-stat
   vertical-align: middle;
 }
 
-#alpmcyezor .gt_empty_group_heading {
+#ablhzjfnrx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -285,15 +281,15 @@ name: rconf-onboarding-stat
   vertical-align: middle;
 }
 
-#alpmcyezor .gt_from_md > :first-child {
+#ablhzjfnrx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#alpmcyezor .gt_from_md > :last-child {
+#ablhzjfnrx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#alpmcyezor .gt_row {
+#ablhzjfnrx .gt_row {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 5px;
@@ -312,7 +308,7 @@ name: rconf-onboarding-stat
   overflow-x: hidden;
 }
 
-#alpmcyezor .gt_stub {
+#ablhzjfnrx .gt_stub {
   color: #333333;
   background-color: #BCBDDC;
   font-size: 100%;
@@ -324,7 +320,7 @@ name: rconf-onboarding-stat
   padding-left: 12px;
 }
 
-#alpmcyezor .gt_summary_row {
+#ablhzjfnrx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -334,7 +330,7 @@ name: rconf-onboarding-stat
   padding-right: 5px;
 }
 
-#alpmcyezor .gt_first_summary_row {
+#ablhzjfnrx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -344,7 +340,7 @@ name: rconf-onboarding-stat
   border-top-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_grand_summary_row {
+#ablhzjfnrx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -354,7 +350,7 @@ name: rconf-onboarding-stat
   padding-right: 5px;
 }
 
-#alpmcyezor .gt_first_grand_summary_row {
+#ablhzjfnrx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -364,11 +360,11 @@ name: rconf-onboarding-stat
   border-top-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_striped {
+#ablhzjfnrx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#alpmcyezor .gt_table_body {
+#ablhzjfnrx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -377,7 +373,7 @@ name: rconf-onboarding-stat
   border-bottom-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_footnotes {
+#ablhzjfnrx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -391,13 +387,13 @@ name: rconf-onboarding-stat
   border-right-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_footnote {
+#ablhzjfnrx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#alpmcyezor .gt_sourcenotes {
+#ablhzjfnrx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -411,41 +407,41 @@ name: rconf-onboarding-stat
   border-right-color: #D3D3D3;
 }
 
-#alpmcyezor .gt_sourcenote {
+#ablhzjfnrx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#alpmcyezor .gt_left {
+#ablhzjfnrx .gt_left {
   text-align: left;
 }
 
-#alpmcyezor .gt_center {
+#ablhzjfnrx .gt_center {
   text-align: center;
 }
 
-#alpmcyezor .gt_right {
+#ablhzjfnrx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#alpmcyezor .gt_font_normal {
+#ablhzjfnrx .gt_font_normal {
   font-weight: normal;
 }
 
-#alpmcyezor .gt_font_bold {
+#ablhzjfnrx .gt_font_bold {
   font-weight: bold;
 }
 
-#alpmcyezor .gt_font_italic {
+#ablhzjfnrx .gt_font_italic {
   font-style: italic;
 }
 
-#alpmcyezor .gt_super {
+#ablhzjfnrx .gt_super {
   font-size: 65%;
 }
 
-#alpmcyezor .gt_footnote_marks {
+#ablhzjfnrx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -611,17 +607,137 @@ name: rconf-onboarding-now
 - [Open UP On-Boarding - `Tidyverse Korea`](https://r2bit.com/onboard/tong.html)
 ]
 
-
 &lt;!--------------------------  오픈업 컨트리뷰션 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: openstat-openup
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. **[.warmyellow[오픈업 컨트리뷰션]](#openstat-openup)**
+
+3\. [On-Boarding 프로그램](#openstat-onboarding)
+
+4\. [오픈 통계 패키지](#openstat-openstat)
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+---
+name: openstat-openup-start
+# Open UP 오픈 프런티어 - Tidyverse Korea
+
+.center[
+&lt;img src="fig/openup-program.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- [[컨트리뷰톤]2021년 Open UP 오픈 프런티어 「마스터 프런티어」 프로젝트팀 선정결과 안내](https://www.oss.kr/notice/show/612cc49e-08b2-486f-83d6-ac7f4114f0d5)
+]
+
+---
+name: rconf-openup-members
+# Open UP 마스터즈 프로그램 - 멘토/멘티
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/openup-contributors.jpg", width="100%" /&gt;
+]
+
+
 
 
 &lt;!--------------------------  On-Boarding 프로그램 -----------------------------------------&gt;
 
 
 
+
+---
+class: inverse, middle
+name: openstat-onboarding
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. [오픈업 컨트리뷰션](#openstat-openup)
+
+3\. **[.warmyellow[On-Boarding 프로그램]](#openstat-onboarding)**
+
+4\. [오픈 통계 패키지](#openstat-openstat)
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+---
+name: openstat-onboarding-start
+# 한국 R 커뮤니티 소개 (글로벌 네트워크)
+
+
+- R Conference and Meetings: [link](https://jumpingrivers.github.io/meetingsR/r-user-groups.html)
+- AsiaR Conference &amp; Asia R Meetup(회의록): [link](https://hackmd.io/QmR_Z8_ERauMk3YekUbsxQ)
+- 한국 R 컨퍼런스: [link](https://use-r.kr/), [Virtual Events](https://jumpingrivers.github.io/meetingsR/virtual-events.html)
+- Facebook Group: [link](https://www.facebook.com/groups/tidyverse)
+- Youtube Channel: [link](https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw)
+- **Seoul R Meetup**: [link](https://www.meetup.com/seoul-r-meetup)
+  - Global R Meetup: [link](https://benubah.github.io/r-community-explorer/rugs.html)
+  - Tidyverse Seoul R Meetup: [link](https://tidyverse-korea.github.io/seoul-R/)
+- **로고** &amp;larr; [데이콘](https://dacon.io/)
+
+.pull-left[
+&lt;img src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/rlogo/bright%ED%95%9C%EC%98%81%EC%84%B8%EB%A1%9C.png", width="100%" /&gt;
+]
+
+.pull-right[
+&lt;img src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/rlogo/dark%EC%98%81%EB%AC%B8%EC%84%B8%EB%A1%9C.png", width="100%" /&gt;
+]
+
+
+.footnote[
+- [Open UP On-Boarding - `Tidyverse Korea` 오픈 통계 패키지](https://r2bit.com/onboard/)
+]
+
+
 ---
 name: rconf-onboarding
-# 오픈업 &amp;rarr; On-Boarding
+# 오픈업 위한 On-Boarding 프로그램
 
 .center[
 &lt;img src="fig/onboarding.jpg", width="100%" /&gt;
@@ -632,14 +748,160 @@ name: rconf-onboarding
 - [Open UP On-Boarding - `Tidyverse Korea` 오픈 통계 패키지](https://r2bit.com/onboard/)
 ]
 
-&lt;!--------------------------  데이터 패키지 -----------------------------------------&gt;
+
+---
+name: rconf-onboarding-virtual
+# R 핸즈온(Hands-on)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/onboarding-handson.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- [FESTA.IO - 한국 R 컨퍼런스 핸즈온](https://festa.io/hosts/1099/)
+]
+
+---
+name: rconf-onboarding-openstat
+# 오픈통계 패키지 개발 튜토리얼
+
+.center[
+&lt;img src="fig/BitStat-tutorial.jpg", width="77%" /&gt;
+]
+
+
+.footnote[
+- [BitStat - R/Shiny 튜토리얼](https://choonghyunryu.github.io/openstat_project/)
+]
+
+
+&lt;!--------------------------  오픈 통계 패키지 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: openstat-openstat
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. [오픈업 컨트리뷰션](#openstat-openup)
+
+3\. [On-Boarding 프로그램](#openstat-onboarding)
+
+4\. **[.warmyellow[오픈 통계 패키지]](#openstat-openstat)**
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: openstat-openstat-start
+# 오픈통계 패키지 - 통계 분석 대중화
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/openstat-democratization.jpg", width="100%" /&gt;
+]
+
+.footnote[
+- [Derek Wang (2021-04-21), "Four Steps To Data Democratization With Artificial Intelligence", Forbes](https://www.forbes.com/sites/forbestechcouncil/2021/04/21/four-steps-to-data-democratization-with-artificial-intelligence/?sh=59158f8979a0)
+]
+
+
+---
+name: rconf-openstat-birdseye
+# 오픈통계 패키지 - Birds-eye View
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/openstat-birdseye-view.jpg", width="100%" /&gt;
+]
+
+.footnote[
+- 출처: R 사용자회
+]
+
+
+---
+name: rconf-openstat-statdata
+# 오픈통계 패키지 - 데이터 패키지(`statdata`)
+
+
+&lt;img src="https://raw.githubusercontent.com/tidyverse-korea/statdata/master/man/figures/workflow.png", width="100%" /&gt;
+
+.pull-right[
+&lt;img src="https://raw.githubusercontent.com/tidyverse-korea/statdata/master/man/figures/logo.png", width="20%" /&gt;
+]
+
+.footnote[
+- [GitHub 저장소](https://github.com/tidyverse-korea/statdata), [`statdata` 웹사이트](https://tidyverse-korea.github.io/statdata/) [eStat](http://estat.me/estat/eStat/) 
+]
+
+
+---
+name: rconf-openstat-ui
+# 오픈통계 패키지 - UI (`Shiny.fluent`)
+
+&lt;img src="fig/openstat_ui.gif", width="100%" /&gt;
+
+
+.footnote[
+- [제작방법](https://statkclee.github.io/data-product/open-stat-module-gender.html)
+]
+
+---
+name: rconf-openstat-bitstat
+# 오픈통계 패키지 - `BitStat`
+
+&lt;br&gt;
+
+&lt;img src="fig/openStat_demo.gif", width="100%" /&gt;
+
+
+.footnote[
+- [`BitStat`: GitHub 저장소](https://github.com/bit2r/BitStat) 
+]
+
+
+---
+name: rconf-openstat-wanted
+# 오픈통계 패키지 - 컨트리뷰터 함께 해요!!!
+
+&lt;img src="fig/clayton-cardinalli-unsplash.jpg", width="100%" /&gt;
+
+
+.footnote[
+- 이미지 출처: Clayton Cardinalli from Unsplash.
+]
+
 
 &lt;!--------------------------  마무리 -----------------------------------------&gt;
 
 
 
 ---
-name: rconf-goodbye
+name: openstat-goodbye
 class: middle, inverse
 
 .pull-left[
@@ -660,10 +922,8 @@ class: middle, inverse
 
 &lt;!--------------------------  작업공간 -----------------------------------------&gt;
 
-
-
-
-
+ 
+  
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

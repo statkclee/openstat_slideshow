@@ -1,6 +1,6 @@
 
 ---
-name: rconf-onboarding-digital-divide
+name: openstat-intro
 # 디지털 불평등
 
 .center[

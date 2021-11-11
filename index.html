@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>오픈 통계 패키지</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="윤화영 外" />
+    <meta name="date" content="2021-11-19" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/rconf.css" type="text/css" />
+    <link rel="stylesheet" href="css/rconf-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, left, bottom
+
+# 오픈 통계 패키지
+----
+## **Shiny, UI/UX, 데이터 패키지, 모듈, 클라우드**
+### 윤화영 外
+### 2021-11-19
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. **[오픈업 컨트리뷰션](#openstat-openup)**
+
+3\. **[.green[On-Boarding 프로그램]](#openstat-onboarding)**
+
+4\. **[.warmyellow[오픈 통계 패키지]](#openstat-openstat)**
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+&lt;!--------------------------  들어가며 -----------------------------------------&gt;
+
+
+
+---
+name: openstat-intro
+# 디지털 불평등
+
+.center[
+&lt;img src="fig/openstat-background.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- [국산 오픈 통계 패키지 - 초중등 교육용 통계 패키지](https://docs.google.com/presentation/d/1v5gu8pTHMcRUei8II4eGB5367fGRZJlRzML9v0U9QdE/)
+]
+
+---
+name: rconf-onboarding-digital-divide
+# 데이터 리터러시 교육(?)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/why-data-literacy.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- 국회입법조사처 "초중등 소프트웨어 교육 운영실태와 개선과제" 2019.12. 제34호
+]
+
+---
+name: rconf-onboarding-now
+# 데이터 리터러시 교육(?)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/why-data-literacy.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- 국회입법조사처 "초중등 소프트웨어 교육 운영실태와 개선과제" 2019.12. 제34호
+]
+
+---
+name: rconf-onboarding-stat
+# 통계/수학 SW 현황 (R사용자회, 2021)
+
+
+<div id="ihmcrbszpa" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ihmcrbszpa .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_heading {
+  background-color: #756BB1;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_title {
+  color: #FFFFFF;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ihmcrbszpa .gt_subtitle {
+  color: #FFFFFF;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ihmcrbszpa .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_col_heading {
+  color: #333333;
+  background-color: #BCBDDC;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ihmcrbszpa .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #BCBDDC;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ihmcrbszpa .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ihmcrbszpa .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ihmcrbszpa .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ihmcrbszpa .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ihmcrbszpa .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ihmcrbszpa .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ihmcrbszpa .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ihmcrbszpa .gt_row {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ihmcrbszpa .gt_stub {
+  color: #333333;
+  background-color: #BCBDDC;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#ihmcrbszpa .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ihmcrbszpa .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ihmcrbszpa .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ihmcrbszpa .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ihmcrbszpa .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ihmcrbszpa .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ihmcrbszpa .gt_left {
+  text-align: left;
+}
+
+#ihmcrbszpa .gt_center {
+  text-align: center;
+}
+
+#ihmcrbszpa .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ihmcrbszpa .gt_font_normal {
+  font-weight: normal;
+}
+
+#ihmcrbszpa .gt_font_bold {
+  font-weight: bold;
+}
+
+#ihmcrbszpa .gt_font_italic {
+  font-style: italic;
+}
+
+#ihmcrbszpa .gt_super {
+  font-size: 65%;
+}
+
+#ihmcrbszpa .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">구분</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">국적</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">명칭</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">웹주소</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">제작사</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">가격</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">비고</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">통계</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">한국</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">이지통계</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;"><a href="https://ebsmath.co.kr/easyTong">웹사이트</a></td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">EBS MATH</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">무료</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;"></td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">통계</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">한국</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">통그라미</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;"><a href="https://tong.kostat.go.kr/">웹사이트</a></td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">통계청, 통계교육원</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">무료</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;"></td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">통계</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">외국</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">SAS</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;"><a href="https://www.sas.com/ko_kr/home.html">웹사이트</a></td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">SAS 인스티튜트</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">상용</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;"></td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">통계</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">외국</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">IBM SPSS</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;"><a href="https://www.ibm.com/products/spss-statistics">웹사이트</a></td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">SPSS Inc.</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">상용</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">IBM 인수 2009년</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">통계</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">미국</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">Minitab</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;"><a href="https://www.minitab.com/ko-kr/">웹사이트</a></td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">Minitab, Inc.</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">상용</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;"></td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">통계</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">한국</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">eStat</td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;"><a href="http://estat.me/">웹사이트</a></td>
+<td class="gt_row gt_center" style="background-color: #F5CB42; font-weight: bold;">이정진</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">무료</td>
+<td class="gt_row gt_left" style="background-color: #F5CB42; font-weight: bold;">숭실대 이정진 교수 제작</td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">GrafEq</td>
+<td class="gt_row gt_center"><a href="http://www.peda.com/">웹사이트</a></td>
+<td class="gt_row gt_center">Pedagouery Software Inc</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left"></td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">Fathom</td>
+<td class="gt_row gt_center"><a href="https://www.fathomhq.com/">웹사이트</a></td>
+<td class="gt_row gt_center">Fathom</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left"></td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">지오지브라</td>
+<td class="gt_row gt_center"><a href="https://www.geogebra.org/">웹사이트</a></td>
+<td class="gt_row gt_center">GeoGebra</td>
+<td class="gt_row gt_left">무료</td>
+<td class="gt_row gt_left"></td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">GSP5<sup class="gt_footnote_marks">1</sup></td>
+<td class="gt_row gt_center"><a href="https://www.dynamicgeometry.com/">웹사이트</a></td>
+<td class="gt_row gt_center">McGraw-Hill</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left">단종 2019</td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">Cabri Geometry</td>
+<td class="gt_row gt_center"><a href="https://www.cabri.com/en/">웹사이트</a></td>
+<td class="gt_row gt_center">Cabrilog</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left">유럽</td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">Desmos</td>
+<td class="gt_row gt_center"><a href="https://www.desmos.com/">웹사이트</a></td>
+<td class="gt_row gt_center">Desmos</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left">자바스크립트, 스타트업</td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">한국</td>
+<td class="gt_row gt_center">알지오매스</td>
+<td class="gt_row gt_center"><a href="https://www.algeomath.kr/">웹사이트</a></td>
+<td class="gt_row gt_center">한국과학창의재단</td>
+<td class="gt_row gt_left">무료</td>
+<td class="gt_row gt_left"></td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">메이플</td>
+<td class="gt_row gt_center"><a href="https://www.maplesoft.com/products/maple/">웹사이트</a></td>
+<td class="gt_row gt_center">MapleSoft</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left"></td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">매스매티카</td>
+<td class="gt_row gt_center"><a href="https://www.wolfram.com/mathematica/">웹사이트</a></td>
+<td class="gt_row gt_center">Wolfram</td>
+<td class="gt_row gt_left">상용</td>
+<td class="gt_row gt_left"></td></tr>
+    <tr><td class="gt_row gt_left">수학</td>
+<td class="gt_row gt_left">외국</td>
+<td class="gt_row gt_center">Octave</td>
+<td class="gt_row gt_center"><a href="https://www.gnu.org/software/octave/">웹사이트</a></td>
+<td class="gt_row gt_center">존 W. 이튼</td>
+<td class="gt_row gt_left">무료</td>
+<td class="gt_row gt_left">GNU GPL</td></tr>
+  </tbody>
+  
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td colspan="7">
+        <p class="gt_footnote">
+          <sup class="gt_footnote_marks">
+            <em>1</em>
+          </sup>
+           
+          GSP5: Geometer’s Sketchpad
+          <br />
+        </p>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+
+---
+name: rconf-onboarding-now
+# 통계/데이터 리터리시 교육 현재
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/data-literacy-now.jpg", width="100%" /&gt;
+]
+
+.footnote[
+- [Open UP On-Boarding - `Tidyverse Korea`](https://r2bit.com/onboard/tong.html)
+]
+
+&lt;!--------------------------  오픈업 컨트리뷰션 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: openstat-openup
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. **[.warmyellow[오픈업 컨트리뷰션]](#openstat-openup)**
+
+3\. [On-Boarding 프로그램](#openstat-onboarding)
+
+4\. [오픈 통계 패키지](#openstat-openstat)
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+---
+name: openstat-openup-start
+# Open UP 오픈 프런티어 - Tidyverse Korea
+
+.center[
+&lt;img src="fig/openup-program.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- [[컨트리뷰톤]2021년 Open UP 오픈 프런티어 「마스터 프런티어」 프로젝트팀 선정결과 안내](https://www.oss.kr/notice/show/612cc49e-08b2-486f-83d6-ac7f4114f0d5)
+]
+
+---
+name: rconf-openup-members
+# Open UP 마스터즈 프로그램 - 멘토/멘티
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/openup-contributors.jpg", width="100%" /&gt;
+]
+
+
+
+
+&lt;!--------------------------  On-Boarding 프로그램 -----------------------------------------&gt;
+
+
+
+
+---
+class: inverse, middle
+name: openstat-onboarding
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. [오픈업 컨트리뷰션](#openstat-openup)
+
+3\. **[.warmyellow[On-Boarding 프로그램]](#openstat-onboarding)**
+
+4\. [오픈 통계 패키지](#openstat-openstat)
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+---
+name: openstat-onboarding-start
+# 한국 R 커뮤니티 소개 (글로벌 네트워크)
+
+
+- R Conference and Meetings: [link](https://jumpingrivers.github.io/meetingsR/r-user-groups.html)
+- AsiaR Conference &amp; Asia R Meetup(회의록): [link](https://hackmd.io/QmR_Z8_ERauMk3YekUbsxQ)
+- 한국 R 컨퍼런스: [link](https://use-r.kr/), [Virtual Events](https://jumpingrivers.github.io/meetingsR/virtual-events.html)
+- Facebook Group: [link](https://www.facebook.com/groups/tidyverse)
+- Youtube Channel: [link](https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw)
+- **Seoul R Meetup**: [link](https://www.meetup.com/seoul-r-meetup)
+  - Global R Meetup: [link](https://benubah.github.io/r-community-explorer/rugs.html)
+  - Tidyverse Seoul R Meetup: [link](https://tidyverse-korea.github.io/seoul-R/)
+- **로고** &amp;larr; [데이콘](https://dacon.io/)
+
+.pull-left[
+&lt;img src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/rlogo/bright%ED%95%9C%EC%98%81%EC%84%B8%EB%A1%9C.png", width="100%" /&gt;
+]
+
+.pull-right[
+&lt;img src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/rlogo/dark%EC%98%81%EB%AC%B8%EC%84%B8%EB%A1%9C.png", width="100%" /&gt;
+]
+
+
+.footnote[
+- [Open UP On-Boarding - `Tidyverse Korea` 오픈 통계 패키지](https://r2bit.com/onboard/)
+]
+
+
+---
+name: rconf-onboarding
+# 오픈업 위한 On-Boarding 프로그램
+
+.center[
+&lt;img src="fig/onboarding.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- [Open UP On-Boarding - `Tidyverse Korea` 오픈 통계 패키지](https://r2bit.com/onboard/)
+]
+
+
+---
+name: rconf-onboarding-virtual
+# R 핸즈온(Hands-on)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/onboarding-handson.jpg", width="100%" /&gt;
+]
+
+
+.footnote[
+- [FESTA.IO - 한국 R 컨퍼런스 핸즈온](https://festa.io/hosts/1099/)
+]
+
+---
+name: rconf-onboarding-openstat
+# 오픈통계 패키지 개발 튜토리얼
+
+.center[
+&lt;img src="fig/BitStat-tutorial.jpg", width="77%" /&gt;
+]
+
+
+.footnote[
+- [BitStat - R/Shiny 튜토리얼](https://choonghyunryu.github.io/openstat_project/)
+]
+
+
+&lt;!--------------------------  오픈 통계 패키지 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: openstat-openstat
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.black[**통계 초보자 및 일반인**]이 쉽게 사용할 수 있도록 .warmyellow[**데이터를 입력하면 자동으로 데이터를 인식하여 최적의 분석을 실행**]하고 결과물도 PDF, HTML, 워드, 대쉬보드 재현가능하게 자동생성되고, 스프레드쉬트 계열의 정형데이터를 넘어 다양한 비정형 데이터(시계열, 공간지리, 텍스트, 이미지 등)도 처리할 수 있도록 데이터 가져오기(auto-Ingest), 탐색적 분석(auto-EDA), 모형(auto-ML), 시각화(auto-Viz), 표(auto-Table), 보고서(auto-Report) 영역에 .green[**Auto-X 기술**]을 적용하여 클라우드 SaaS 기반 통계 패키지 SW 개발.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [들어가며](#openstat-intro)
+
+2\. [오픈업 컨트리뷰션](#openstat-openup)
+
+3\. [On-Boarding 프로그램](#openstat-onboarding)
+
+4\. **[.warmyellow[오픈 통계 패키지]](#openstat-openstat)**
+ 
+5\. [마무리](#openstat-goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: openstat-openstat-start
+# 오픈통계 패키지 - 통계 분석 대중화
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/openstat-democratization.jpg", width="100%" /&gt;
+]
+
+.footnote[
+- [Derek Wang (2021-04-21), "Four Steps To Data Democratization With Artificial Intelligence", Forbes](https://www.forbes.com/sites/forbestechcouncil/2021/04/21/four-steps-to-data-democratization-with-artificial-intelligence/?sh=59158f8979a0)
+]
+
+
+---
+name: rconf-openstat-birdseye
+# 오픈통계 패키지 - Birds-eye View
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/openstat-birdseye-view.jpg", width="100%" /&gt;
+]
+
+.footnote[
+- 출처: R 사용자회
+]
+
+
+---
+name: rconf-openstat-statdata
+# 오픈통계 패키지 - 데이터 패키지(`statdata`)
+
+
+&lt;img src="https://raw.githubusercontent.com/tidyverse-korea/statdata/master/man/figures/workflow.png", width="100%" /&gt;
+
+.pull-right[
+&lt;img src="https://raw.githubusercontent.com/tidyverse-korea/statdata/master/man/figures/logo.png", width="20%" /&gt;
+]
+
+.footnote[
+- [GitHub 저장소](https://github.com/tidyverse-korea/statdata), [`statdata` 웹사이트](https://tidyverse-korea.github.io/statdata/) [eStat](http://estat.me/estat/eStat/) 
+]
+
+
+---
+name: rconf-openstat-ui
+# 오픈통계 패키지 - UI (`Shiny.fluent`)
+
+&lt;img src="fig/openstat_ui.gif", width="100%" /&gt;
+
+
+.footnote[
+- [제작방법](https://statkclee.github.io/data-product/open-stat-module-gender.html)
+]
+
+---
+name: rconf-openstat-bitstat
+# 오픈통계 패키지 - `BitStat`
+
+&lt;br&gt;
+
+&lt;img src="fig/openStat_demo.gif", width="100%" /&gt;
+
+
+.footnote[
+- [`BitStat`: GitHub 저장소](https://github.com/bit2r/BitStat) 
+]
+
+
+---
+name: rconf-openstat-wanted
+# 오픈통계 패키지 - 컨트리뷰터 함께 해요!!!
+
+&lt;img src="fig/clayton-cardinalli-unsplash.jpg", width="100%" /&gt;
+
+
+.footnote[
+- 이미지 출처: Clayton Cardinalli from Unsplash.
+]
+
+
+&lt;!--------------------------  마무리 -----------------------------------------&gt;
+
+
+
+---
+name: openstat-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## R 사용자회
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 0%;" src="https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/rlogo/bright%EC%98%81%EB%AC%B8%EC%84%B8%EB%A1%9C.png" width="300px"/&gt;
+
+]
+]
+
+
+&lt;!--------------------------  작업공간 -----------------------------------------&gt;
+
+ 
+  
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(https://raw.githubusercontent.com/statkclee/art/gh-pages/fig/koRea_vertical_logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
